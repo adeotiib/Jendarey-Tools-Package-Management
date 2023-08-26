@@ -31,3 +31,5 @@
 - You can create a maximum of 2 EC2 instances per month under the free tier.
 
 - You can create EC2 instances in any region that is available in the AWS Free Tier.
+
+
