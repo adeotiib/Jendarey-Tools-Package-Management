@@ -33,3 +33,5 @@
 - You can create EC2 instances in any region that is available in the AWS Free Tier.
 
 
+
+
