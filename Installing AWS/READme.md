@@ -16,7 +16,7 @@ You will receive an email with a confirmation link. Click on the link to verify 
 
 Once your account is verified, you can start using the AWS Free Tier.
 
-Here are some additional things to keep in mind when setting up a free AWS Free Tier account:
+# Here are some additional things to keep in mind when setting up a free AWS Free Tier account:
 
 You will need a credit or debit card to create an AWS account. However, you will not be charged for any usage within the Free Tier limits.
 
