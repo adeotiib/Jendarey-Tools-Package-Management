@@ -22,6 +22,6 @@ You will need a credit or debit card to create an AWS account. However, you will
 
 The AWS Free Tier is available to all types of customers, including students, entrepreneurs, small businesses, and Fortune 500 companies.
 
-The AWS Free Tier offers a variety of services, including compute, storage, networking, databases, analytics, machine learning, and artificial intelligence.
+The AWS Free Tier offers a variety of services, including computing, storage, networking, databases, analytics, machine learning, and artificial intelligence.
 
 You can find more information about the AWS Free Tier on the AWS website: https://aws.amazon.com/free/
