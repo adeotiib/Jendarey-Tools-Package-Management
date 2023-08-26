@@ -1,9 +1,13 @@
 # Here are the steps on how to set up a free AWS Free Tier account:
 
 Go to the AWS website: https://aws.amazon.com/
+
 Click on the Create an AWS Account button.
+
 Enter your name, email address, and password.
+
 Select your country or region.
+
 Read and agree to the AWS terms of service and privacy policy.
 Click on the Create Account button.
 You will receive an email with a confirmation link. Click on the link to verify your account.
