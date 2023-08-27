@@ -61,7 +61,7 @@ http {
 
     upstream tomcatServers {
         keepalive 50;
-        server 172.31.32.211:8090;
+        server 172.31.32.211:8080;
         server 172.31.35.241:8080;
         server 172.31.41.137:8080;
     }
