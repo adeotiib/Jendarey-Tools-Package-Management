@@ -2,9 +2,9 @@
 
 # Go to the Sublime Text website: 
 
-```bash
-https://www.sublimetext.com/
-```
+
+- https://www.sublimetext.com/
+
 -and click on the Download for Windows button.
 
 - Once the installer has downloaded, run it to install the editor.
