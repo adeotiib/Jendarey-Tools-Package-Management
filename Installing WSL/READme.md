@@ -5,3 +5,7 @@
 ```bash
 https://learn.microsoft.com/en-us/windows/wsl/about
 ```
+
+```bash
+https://learn.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+```
