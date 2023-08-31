@@ -1,3 +1,4 @@
+# You can install Sublime Text on Mac. There are two ways to do it:
 # Download the .dmg file from the Sublime Text website.
 
 - Go to the Sublime Text download page: https://www.sublimetext.com/download.
