@@ -29,18 +29,24 @@
 # Set Billing Alarm
 To set up a billing alarm in AWS, you can follow these steps:
 
-- Go to the AWS Billing Console.
+- From the user drop-down menu at the top right side of your AWS console.
+- Select AWS Billing Console.
+- Click Billing Preferences. Enable invoice delivery Preferences and Alert Preferences (Add your email address), and add CloudWatch Billing alerts
+- Save and Click on the AWS logo on the Console.
+- Search for CloudWatch from the search bar.
+- Click on CloudWatch - Ensure you are in North Virgina.
 - Click Alarms.
+- Click on all alarms 
 - Click Create alarm.
 - Select Billing as the Metric type.
-- Select the Metric that you want to monitor.
-- Select the Statistic that you want to use.
-- Enter the Threshold value.
-- Select the Comparison operator.
-- Select the Period.
-- Select the Evaluation period.
-- Select the Alarm actions.
+- Select the Metric that you want to monitor. - Select Billing, select Total Estimated Charge, select Currency USD, Select Matric, and Enter the Threshold value.
+- Next, Select an SNS topic - or create an SNS topic, - topic name - ChargesMonitoringTeam.
+- Add an email address and create a topic.
+- Next, Name your AWSBillingAlert
+- Next, click Create Alarm.
 - Click Create alarm.
+- Check email and confirm Subscription
+- Go back to AWS and refresh your CloudWatch.
   
 # Here is a more detailed explanation of each step:
 
