@@ -2,9 +2,7 @@
 
 - Go to the Google Domains website:
   
-```bash
 https://domains.google/.
-```
 
 - Click Get a new domain.
 
