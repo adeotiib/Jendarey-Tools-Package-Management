@@ -2,9 +2,8 @@
 
 - Go to the GitHub website: 
 
-```bash
-https://github.com/
-```
+- https://github.com/
+
 - Click on the Sign up button.
   
 - Enter your email address and create a password.
