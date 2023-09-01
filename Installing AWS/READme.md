@@ -1,7 +1,7 @@
 # Here are the steps on how to set up a free AWS Free Tier account:
 
 ```bash
-https://portal.aws.amazon.com/billing/signup#/start/email
+https://aws.amazon.com/free
 ```
 
 - Click on the Create an AWS Account button.
