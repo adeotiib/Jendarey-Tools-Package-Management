@@ -1,6 +1,8 @@
 # Here are the steps on how to set up a free AWS Free Tier account:
 
-- https://aws.amazon.com/
+```bash
+https://aws.amazon.com/
+```
 
 - Click on the Create an AWS Account button.
 
