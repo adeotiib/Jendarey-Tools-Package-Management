@@ -9,9 +9,54 @@
 
 -Attach Security Group to ec2 Instance.
 
--Install java openJDK 1.8+
+-Install java openJDK 11 and 17 
 
 
+# Install Apache Maven on Ubuntu 22.04 - Using package manager:
+
+-Install Java JDK 11+ and other software (Git, wget, and tree):
+
+# Step 1: Change the hostname to Maven
+~~~
+sudo hostnamectl set-hostname maven
+sudo su - ubuntu
+~~~
+# Step 2: Update system repositories
+~~~
+sudo apt update
+~~~
+# Step 3: Upgrade installed packages
+~~~
+sudo apt upgrade -y
+~~~
+
+# Step 4: Install dependencies
+~~~
+sudo apt install tree git openjdk-17-jdk openjdk-11-jdk -y
+~~~
+
+# Step 5: Install Maven
+~~~
+sudo apt install maven -y
+~~~
+
+# Step 6: Verify Maven installation
+~~~
+mvn -version
+~~~
+
+# Display Java and Git versions
+~~~
+java -version
+~~~
+
+~~~
+git --version
+~~~
+
+
+=====================================================================
+# Install Apache Maven on Ubuntu 22.04 - Using Manual method
 # Install Java JDK 11+ and other software (GIT, wget, and tree):
 
 ```bash
@@ -20,7 +65,7 @@ sudo su - ubuntu
 sudo apt update
 cd /opt
 sudo yum install wget nano tree unzip git -y
-sudo apt install openjdk-11-jdk 
+sudo apt install openjdk-11-jdk openjdk-17-jdk -y 
 java -version
 git --version
 ```
@@ -100,3 +145,5 @@ mvn -version
 java -version
 
 git --version
+
+
