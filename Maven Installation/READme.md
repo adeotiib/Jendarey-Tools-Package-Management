@@ -64,7 +64,7 @@ sudo hostnamectl set-hostname maven
 sudo su - ubuntu
 sudo apt update
 cd /opt
-sudo yum install wget nano tree unzip git -y
+sudo apt install wget nano tree unzip git -y
 sudo apt install openjdk-11-jdk openjdk-17-jdk -y 
 java -version
 git --version
