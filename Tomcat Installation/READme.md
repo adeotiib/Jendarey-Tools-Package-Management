@@ -1,87 +1,154 @@
-# Whenever you are installing an application in Linux server, always install it in the/opt - directory
+# Install Apache Tomcat on Ubuntu 22.04 - Using Manual method
 
-#Tomcat Installation and Configuration Guide:
+|When ever you are installing an application in linux server, always install it in /opt - directory
 
-```bash
-https://tomcat.apache.org/download-90.cgi
-```
-
-```bash
-https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.79/bin/apache-tomcat-9.0.79.zip
-```
-
-#Tomcat, a widely used web server and servlet container can be easily installed and configured for your Java web applications. Follow these steps to get Tomcat up and running on your system.
-
-#!/bin/bash
-
-# Prerequisites
-
+- Prerequisites
 - AWS Account
-  
-- Ubuntu t2.micro Instance
-  
-- Security Group with required ports open
-  
-- Java OpenJDK 1.8+ installed
-  
+- Create ubuntu ec2 t2.medium Instance with 4GB of RAM.
+- Security Group with required ports open (22, 8080)
+- Java OpenJDK 11+ installed
 
-# Change the hostname to 'tomcat'
-```bash
+# Change hostname to 'tomcat'
+~~~
 sudo hostnamectl set-hostname tomcat
 sudo su - ubuntu
-sudo apt update
-```
+~~~
 
-# Install required packages
+# Step 1: Update and upgrade Package List
+~~~
+sudo apt update  
+~~~
 
-```bash
+# Step 2: Install required packages
+~~~
 cd /opt
-sudo apt install git wget unzip -y
-sudo apt install openjdk-11-jdk 
-```
+~~~
 
-# Download and extract Tomcat 9.0.75
+~~~
+sudo apt install wget unzip -y
+~~~
 
-```bash
-sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.79/bin/apache-tomcat-9.0.79.zip
-sudo unzip apache-tomcat-9.0.79.zip
-sudo rm -rf apache-tomcat-9.0.79.zip
-```
-# Rename Tomcat directory
-```bash
-sudo mv apache-tomcat-9.0.79 tomcat9
-```
+~~~
+sudo apt install openjdk-11-jdk openjdk-17-jdk -y
+~~~
+~~~
+java -version
+~~~
 
-# Set permissions and ownership
-```bash
-sudo chmod 777 -R /opt/tomcat9
-sudo chown ubuntu -R /opt/tomcat9
-```
+# Step 3: Download and extract Tomcat 10.1.13
+~~~
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.13/bin/apache-tomcat-10.1.13.zip
+~~~
 
-# Start Tomcat
-```bash
-sh /opt/tomcat9/bin/startup.sh
-```
+~~~
+sudo unzip apache-tomcat-10.1.13.zip
+~~~
 
-# Create symbolic links for managing Tomcat as a service
-```bash
-sudo ln -s /opt/tomcat9/bin/startup.sh /usr/bin/starttomcat
-sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
-```
+~~~
+sudo rm -rf apache-tomcat-10.1.13.zip
+~~~
 
-# Start Tomcat using the service links
-```bash
+# Step 4: Rename Tomcat directory
+~~~
+sudo mv apache-tomcat-10.1.13 tomcat10
+~~~
+
+# Step 5: Set permissions and ownership
+~~~
+ls -l 
+~~~
+
+~~~
+sudo chmod 777 -R /opt/tomcat10
+~~~
+
+~~~
+sudo chown ubuntu:ubuntu -R /opt/tomcat10
+~~~
+
+# Step 6: Start Tomcat
+~~~
+sh /opt/tomcat10/bin/startup.sh
+~~~
+
+# Step 7: Create symbolic links for managing Tomcat as a service
+~~~
+sudo ln -s /opt/tomcat10/bin/startup.sh /usr/bin/starttomcat
+sudo ln -s /opt/tomcat10/bin/shutdown.sh /usr/bin/stoptomcat
+~~~
+
+# Step 8: Start Tomcat using the service links
+~~~
 starttomcat
-```
+~~~
 
-# Switch back to 'ubuntu' user
-```bash
+# Step 9: Switch back to 'ubuntu' user
+~~~
 sudo su - ubuntu
-```
------------------------------------------------------------------------------------------------
-# Remember to make the script executable before running it:
-```bash
-chmod +x script_name.sh
-```
+~~~
 
-- Replace script_name.sh with the desired name for your script file. After that, you can run the script by executing ./script_name.sh in the terminal.
+- Open a web browser and go to http://localhost:8080 or publicIP:8080
+
+# ============================================================
+
+
+# Installing Tomcat using Scripts on ubuntu 22.04
+==========================================================================
+
+
+# vim tomcatsetup-script.sh
+==========================================================================
+
+~~~
+sudo hostnamectl set-hostname tomcatsetup-script
+
+sudo apt update
+
+cd /opt
+
+sudo apt install wget unzip -y
+sudo apt install openjdk-11-jdk openjdk-17-jdk -y
+
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.13/bin/apache-tomcat-10.1.13.zip
+sudo unzip apache-tomcat-10.1.13.zip
+sudo rm -rf apache-tomcat-10.1.13.zip
+
+
+sudo mv apache-tomcat-10.1.13 tomcat10
+
+sudo chmod 777 -R /opt/tomcat10
+sudo chown ubuntu:ubuntu -R /opt/tomcat10
+
+sudo ln -s /opt/tomcat10/bin/startup.sh /usr/bin/starttomcat
+sudo ln -s /opt/tomcat10/bin/shutdown.sh /usr/bin/stoptomcat
+
+
+sed -i '/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/s/^/<!-- /' /opt/tomcat10/webapps/manager/META-INF/context.xml
+sed -i '/allow="127\\.[0-9]\+\.[0-9]\+\.[0-9]\+\|::1\|0:0:0:0:0:0:0:1"/s/$/" --> /' /opt/tomcat10/webapps/manager/META-INF/context.xml
+
+sed -i '/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/s/^/<!-- /' /opt/tomcat10/webapps/host-manager/META-INF/context.xml
+sed -i '/allow="127\\.[0-9]\+\.[0-9]\+\.[0-9]\+\|::1\|0:0:0:0:0:0:0:1"/s/$/" --> /' /opt/tomcat10/webapps/host-manager/META-INF/context.xml
+
+
+sudo sed -i '/<\/tomcat-users>/i \<user username="admin" password="admin123" roles="manager-gui,admin-gui,manager-script"/>' /opt/tomcat10/conf/tomcat-users.xml
+sudo sed -i '/<\/tomcat-users>/i \<user username="admin2" password="admin123" roles="admin-gui"/>' /opt/tomcat10/conf/tomcat-users.xml
+
+
+starttomcat
+
+
+sudo su - ubuntu
+~~~
+
+
+
+=====================================================
+
+
+- sh tomcatsetup-script.sh
+
+- or 
+
+- chmod +x tomcatsetup-script.sh
+
+- ./tomcatsetup-script.sh
